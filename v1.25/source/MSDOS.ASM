@@ -45,7 +45,7 @@
 ; INTBASE+40H:  Long jump to CALL entry point
 
         IF      IBM
-ESCCH   EQU     0
+ESCCH   EQU     1
 CANCEL  EQU     1BH             ;Cancel with ESC
 TOGLINS EQU     TRUE            ;One key toggles insert mode
 TOGLPRN EQU     TRUE            ;One key toggles printer echo
@@ -250,7 +250,7 @@ ESCTAB:
         ENDIF
 
 ESCTABLEN EQU   $-ESCTAB
-        IF      NOT IBM
+        IF      IBM
 HEADER  DB      13,10,"MS-DOS version 1.25"
         IF      HIGHMEM
         DB      "H"
